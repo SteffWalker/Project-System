@@ -27,13 +27,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    project.cpp \
-    date.cpp
+    date.cpp \
+    projectmodel.cpp \
+    productmodel.cpp
 
 HEADERS += \
         mainwindow.h \
-    project.h \
-    date.h
+    date.h \
+    projectmodel.h \
+    productmodel.h
 
 FORMS += \
         mainwindow.ui \
