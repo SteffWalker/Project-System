@@ -53,9 +53,13 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../TrekStar/main.cpp \
-		../TrekStar/mainwindow.cpp moc_mainwindow.cpp
+		../TrekStar/mainwindow.cpp \
+		../TrekStar/project.cpp \
+		../TrekStar/date.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		project.o \
+		date.o \
 		moc_mainwindow.o
 DIST          = ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/qdevice.pri \
@@ -200,6 +204,7 @@ DIST          = ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/spec_pre.p
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/spec_post.prf \
+		../TrekStar/.qmake.stash \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/toolchain.prf \
@@ -227,8 +232,12 @@ DIST          = ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/spec_pre.p
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/exceptions.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/yacc.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/lex.prf \
-		../TrekStar/TrekStar.pro ../TrekStar/mainwindow.h ../TrekStar/main.cpp \
-		../TrekStar/mainwindow.cpp
+		../TrekStar/TrekStar.pro ../TrekStar/mainwindow.h \
+		../TrekStar/project.h \
+		../TrekStar/date.h ../TrekStar/main.cpp \
+		../TrekStar/mainwindow.cpp \
+		../TrekStar/project.cpp \
+		../TrekStar/date.cpp
 QMAKE_TARGET  = TrekStar
 DESTDIR       = 
 TARGET        = TrekStar.app/Contents/MacOS/TrekStar
@@ -247,7 +256,7 @@ include /Users/Steffan/Qt5.12.2/5.12.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-TrekStar.app/Contents/MacOS/TrekStar: ui_mainwindow.h $(OBJECTS)  
+TrekStar.app/Contents/MacOS/TrekStar: ui_mainwindow.h ui_addproject.h $(OBJECTS)  
 	@test -d TrekStar.app/Contents/MacOS/ || mkdir -p TrekStar.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -394,6 +403,7 @@ Makefile: ../TrekStar/TrekStar.pro ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/toolchain.prf \
@@ -569,6 +579,7 @@ Makefile: ../TrekStar/TrekStar.pro ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/
 ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/qt_config.prf:
 ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/toolchain.prf:
@@ -630,9 +641,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrekStar/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrekStar/main.cpp ../TrekStar/mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrekStar/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrekStar/mainwindow.h ../TrekStar/project.h ../TrekStar/date.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrekStar/main.cpp ../TrekStar/mainwindow.cpp ../TrekStar/project.cpp ../TrekStar/date.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrekStar/mainwindow.ui ../TrekStar/addproject.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -642,6 +653,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r TrekStar.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -680,12 +692,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_addproject.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_addproject.h
 ui_mainwindow.h: ../TrekStar/mainwindow.ui \
 		../../../../Qt5.12.2/5.12.2/clang_64/bin/uic
 	/Users/Steffan/Qt5.12.2/5.12.2/clang_64/bin/uic ../TrekStar/mainwindow.ui -o ui_mainwindow.h
+
+ui_addproject.h: ../TrekStar/addproject.ui \
+		../../../../Qt5.12.2/5.12.2/clang_64/bin/uic
+	/Users/Steffan/Qt5.12.2/5.12.2/clang_64/bin/uic ../TrekStar/addproject.ui -o ui_addproject.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -711,6 +727,13 @@ mainwindow.o: ../TrekStar/mainwindow.cpp ../TrekStar/mainwindow.h \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TrekStar/mainwindow.cpp
+
+project.o: ../TrekStar/project.cpp ../TrekStar/project.h \
+		../TrekStar/date.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o project.o ../TrekStar/project.cpp
+
+date.o: ../TrekStar/date.cpp ../TrekStar/date.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o date.o ../TrekStar/date.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
