@@ -29,13 +29,15 @@ SOURCES += \
         mainwindow.cpp \
     date.cpp \
     projectmodel.cpp \
-    productmodel.cpp
+    productmodel.cpp \
+    addproject.cpp
 
 HEADERS += \
         mainwindow.h \
     date.h \
     projectmodel.h \
-    productmodel.h
+    productmodel.h \
+    addproject.h
 
 FORMS += \
         mainwindow.ui \

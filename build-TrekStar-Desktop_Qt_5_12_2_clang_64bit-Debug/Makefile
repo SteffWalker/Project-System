@@ -54,13 +54,19 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../TrekStar/main.cpp \
 		../TrekStar/mainwindow.cpp \
-		../TrekStar/project.cpp \
-		../TrekStar/date.cpp moc_mainwindow.cpp
+		../TrekStar/date.cpp \
+		../TrekStar/projectmodel.cpp \
+		../TrekStar/productmodel.cpp \
+		../TrekStar/addproject.cpp moc_mainwindow.cpp \
+		moc_addproject.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
-		project.o \
 		date.o \
-		moc_mainwindow.o
+		projectmodel.o \
+		productmodel.o \
+		addproject.o \
+		moc_mainwindow.o \
+		moc_addproject.o
 DIST          = ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/qdevice.pri \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/device_config.prf \
@@ -233,11 +239,15 @@ DIST          = ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/spec_pre.p
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/yacc.prf \
 		../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/lex.prf \
 		../TrekStar/TrekStar.pro ../TrekStar/mainwindow.h \
-		../TrekStar/project.h \
-		../TrekStar/date.h ../TrekStar/main.cpp \
+		../TrekStar/date.h \
+		../TrekStar/projectmodel.h \
+		../TrekStar/productmodel.h \
+		../TrekStar/addproject.h ../TrekStar/main.cpp \
 		../TrekStar/mainwindow.cpp \
-		../TrekStar/project.cpp \
-		../TrekStar/date.cpp
+		../TrekStar/date.cpp \
+		../TrekStar/projectmodel.cpp \
+		../TrekStar/productmodel.cpp \
+		../TrekStar/addproject.cpp
 QMAKE_TARGET  = TrekStar
 DESTDIR       = 
 TARGET        = TrekStar.app/Contents/MacOS/TrekStar
@@ -641,8 +651,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrekStar/mainwindow.h ../TrekStar/project.h ../TrekStar/date.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrekStar/main.cpp ../TrekStar/mainwindow.cpp ../TrekStar/project.cpp ../TrekStar/date.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrekStar/mainwindow.h ../TrekStar/date.h ../TrekStar/projectmodel.h ../TrekStar/productmodel.h ../TrekStar/addproject.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrekStar/main.cpp ../TrekStar/mainwindow.cpp ../TrekStar/date.cpp ../TrekStar/projectmodel.cpp ../TrekStar/productmodel.cpp ../TrekStar/addproject.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TrekStar/mainwindow.ui ../TrekStar/addproject.ui $(DISTDIR)/
 
 
@@ -678,15 +688,23 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.12 -Wall -W -dM -E -o moc_predefs.h ../../../../Qt5.12.2/5.12.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_addproject.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_addproject.cpp
 moc_mainwindow.cpp: ../TrekStar/mainwindow.h \
+		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../TrekStar/addproject.h \
+		moc_predefs.h \
+		../../../../Qt5.12.2/5.12.2/clang_64/bin/moc
+	/Users/Steffan/Qt5.12.2/5.12.2/clang_64/bin/moc $(DEFINES) --include '/Users/Steffan/Uni/Software Design/Qt/build-TrekStar-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h' -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/mkspecs/macx-clang -I'/Users/Steffan/Uni/Software Design/Qt/TrekStar' -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib ../TrekStar/mainwindow.h -o moc_mainwindow.cpp
+
+moc_addproject.cpp: ../TrekStar/addproject.h \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		moc_predefs.h \
 		../../../../Qt5.12.2/5.12.2/clang_64/bin/moc
-	/Users/Steffan/Qt5.12.2/5.12.2/clang_64/bin/moc $(DEFINES) --include '/Users/Steffan/Uni/Software Design/Qt/build-TrekStar-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h' -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/mkspecs/macx-clang -I'/Users/Steffan/Uni/Software Design/Qt/TrekStar' -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib ../TrekStar/mainwindow.h -o moc_mainwindow.cpp
+	/Users/Steffan/Qt5.12.2/5.12.2/clang_64/bin/moc $(DEFINES) --include '/Users/Steffan/Uni/Software Design/Qt/build-TrekStar-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h' -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/mkspecs/macx-clang -I'/Users/Steffan/Uni/Software Design/Qt/TrekStar' -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/Steffan/Qt5.12.2/5.12.2/clang_64/lib ../TrekStar/addproject.h -o moc_addproject.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -718,6 +736,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 main.o: ../TrekStar/main.cpp ../TrekStar/mainwindow.h \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../TrekStar/addproject.h \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TrekStar/main.cpp
@@ -725,18 +744,31 @@ main.o: ../TrekStar/main.cpp ../TrekStar/mainwindow.h \
 mainwindow.o: ../TrekStar/mainwindow.cpp ../TrekStar/mainwindow.h \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../TrekStar/addproject.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TrekStar/mainwindow.cpp
-
-project.o: ../TrekStar/project.cpp ../TrekStar/project.h \
-		../TrekStar/date.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o project.o ../TrekStar/project.cpp
 
 date.o: ../TrekStar/date.cpp ../TrekStar/date.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o date.o ../TrekStar/date.cpp
 
+projectmodel.o: ../TrekStar/projectmodel.cpp ../TrekStar/projectmodel.h \
+		../TrekStar/date.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o projectmodel.o ../TrekStar/projectmodel.cpp
+
+productmodel.o: ../TrekStar/productmodel.cpp ../TrekStar/productmodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o productmodel.o ../TrekStar/productmodel.cpp
+
+addproject.o: ../TrekStar/addproject.cpp ../TrekStar/addproject.h \
+		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../../Qt5.12.2/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		ui_addproject.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addproject.o ../TrekStar/addproject.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_addproject.o: moc_addproject.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addproject.o moc_addproject.cpp
 
 ####### Install
 

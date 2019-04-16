@@ -17,3 +17,11 @@ void MainWindow::on_pushButton_clicked()
 {
 
 }
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    hide();
+    addproject = new class addproject(this);
+    addproject->show();
+
+}

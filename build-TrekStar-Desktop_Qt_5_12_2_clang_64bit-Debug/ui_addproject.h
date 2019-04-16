@@ -18,42 +18,43 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_addproject
 {
 public:
-    QMenuBar *menubar;
     QWidget *centralwidget;
+    QMenuBar *menubar;
     QStatusBar *statusbar;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *addproject)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        MainWindow->setMenuBar(menubar);
-        centralwidget = new QWidget(MainWindow);
+        if (addproject->objectName().isEmpty())
+            addproject->setObjectName(QString::fromUtf8("addproject"));
+        addproject->resize(660, 485);
+        centralwidget = new QWidget(addproject);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        MainWindow->setCentralWidget(centralwidget);
-        statusbar = new QStatusBar(MainWindow);
+        addproject->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(addproject);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 660, 22));
+        addproject->setMenuBar(menubar);
+        statusbar = new QStatusBar(addproject);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        MainWindow->setStatusBar(statusbar);
+        addproject->setStatusBar(statusbar);
 
-        retranslateUi(MainWindow);
+        retranslateUi(addproject);
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(addproject);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *addproject)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
+        addproject->setWindowTitle(QApplication::translate("addproject", "MainWindow", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class addproject: public Ui_addproject {};
 } // namespace Ui
 
 QT_END_NAMESPACE
