@@ -30,18 +30,21 @@ SOURCES += \
     date.cpp \
     projectmodel.cpp \
     productmodel.cpp \
-    addproject.cpp
+    addproject.cpp \
+    addproduct.cpp
 
 HEADERS += \
         mainwindow.h \
     date.h \
     projectmodel.h \
     productmodel.h \
-    addproject.h
+    addproject.h \
+    addproduct.h
 
 FORMS += \
         mainwindow.ui \
-    addproject.ui
+    addproject.ui \
+    addproduct.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

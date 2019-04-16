@@ -65,7 +65,7 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>220</y>
+      <y>280</y>
       <width>141</width>
       <height>51</height>
      </rect>
@@ -78,13 +78,26 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>280</y>
+      <y>340</y>
       <width>141</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
      <string>Maintenance Mode</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>220</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Products</string>
     </property>
    </widget>
   </widget>
