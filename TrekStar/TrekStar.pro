@@ -49,7 +49,8 @@ FORMS += \
         mainwindow.ui \
     openproject.ui \
     projectdetails.ui \
-    newmaterial.ui
+    newmaterial.ui \
+    newproject.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
