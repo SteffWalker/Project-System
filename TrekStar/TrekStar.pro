@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-04-13T21:03:41
+# Project created by QtCreator 2019-04-17T19:41:41
 #
 #-------------------------------------------------
 
@@ -27,24 +27,29 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    date.cpp \
-    projectmodel.cpp \
+    newproject.cpp \
+    openproject.cpp \
+    projectdetails.cpp \
     productmodel.cpp \
-    addproject.cpp \
-    addproduct.cpp
+    projectmodel.cpp \
+    date.cpp \
+    newmaterial.cpp
 
 HEADERS += \
         mainwindow.h \
-    date.h \
-    projectmodel.h \
+    newproject.h \
+    openproject.h \
+    projectdetails.h \
     productmodel.h \
-    addproject.h \
-    addproduct.h
+    projectmodel.h \
+    date.h \
+    newmaterial.h
 
 FORMS += \
         mainwindow.ui \
-    addproject.ui \
-    addproduct.ui
+    openproject.ui \
+    projectdetails.ui \
+    newmaterial.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

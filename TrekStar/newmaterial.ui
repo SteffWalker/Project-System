@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>addproduct</class>
- <widget class="QMainWindow" name="addproduct">
+ <class>NewMaterial</class>
+ <widget class="QDialog" name="NewMaterial">
   <property name="geometry">
    <rect>
     <x>0</x>

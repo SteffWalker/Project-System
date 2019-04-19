@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "addproduct.h"
+#include "newproject.h"
+#include "openproject.h"
+#include "projectdetails.h"
+#include "newmaterial.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,20 +19,28 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-
+    NewProject np;
+    np.setModal(true);
+    np.exec();
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    hide();
-    addproject = new class addproject(this);
-    addproject->show();
+    OpenProject op;
+    op.setModal(true);
+    op.exec();
+}
 
+void MainWindow::on_pushButton_3_clicked()
+{
+    ProjectDetails pd;
+    pd.setModal(true);
+    pd.exec();
 }
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    hide();
-    addproduct = new class addproduct(this);
-    addproduct->show();
+    NewMaterial nm;
+    nm.setModal(true);
+    nm.exec();
 }

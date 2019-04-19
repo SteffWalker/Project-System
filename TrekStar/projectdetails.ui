@@ -1,0 +1,1450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProjectDetails</class>
+ <widget class="QDialog" name="ProjectDetails">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1344</width>
+    <height>682</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>1291</width>
+     <height>621</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <widget class="QWidget" name="tbGeneral">
+    <attribute name="title">
+     <string>General</string>
+    </attribute>
+    <widget class="QPushButton" name="cmdLocationDel">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>260</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdLocationAdd">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>260</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lstLocations">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>310</y>
+       <width>421</width>
+       <height>101</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbGenre">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>60</y>
+       <width>331</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbRuntime">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>180</y>
+       <width>331</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>1000</number>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbLanguage">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>110</y>
+       <width>331</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="currentText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdClearGeneralChanges">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>440</y>
+       <width>421</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Reset Changes</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtLocationAdd">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>260</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblRuntime">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>60</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Runtime:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblSummary">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Summary:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLocations">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>220</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Locations:</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbSales">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>170</y>
+       <width>331</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>999999999</number>
+     </property>
+     <property name="singleStep">
+      <number>100</number>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="deRelease">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>130</y>
+       <width>331</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbStatus">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>10</y>
+       <width>331</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdApplyGeneralChanges">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>440</y>
+       <width>421</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Update Project Details</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblGenre">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>60</y>
+       <width>60</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Genre:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblStatus">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>10</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Status:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblRelease">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Release:</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="txtSummary">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>60</y>
+       <width>331</width>
+       <height>51</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtTitleProject">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>10</y>
+       <width>331</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTitleProjects">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Title:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLanguage">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>110</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Language:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblKeywords">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>220</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Keywords:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblSales">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>170</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Sales:</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lstKeywords">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>310</y>
+       <width>421</width>
+       <height>101</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtKeywordsAdd">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>260</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdKeywordsDel">
+     <property name="geometry">
+      <rect>
+       <x>810</x>
+       <y>260</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdKeywordsAdd">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>260</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tbCrew">
+    <attribute name="title">
+     <string>Crew</string>
+    </attribute>
+    <widget class="QLineEdit" name="txtCrew">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>20</y>
+       <width>691</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lstCrew">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>210</y>
+       <width>1191</width>
+       <height>341</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdCrewFilter">
+     <property name="geometry">
+      <rect>
+       <x>1010</x>
+       <y>20</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Filter</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbCrew">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdCrewDel">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>160</y>
+       <width>441</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdCrewAdd">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>160</y>
+       <width>441</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblDateOfBirth">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>70</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Date of Birth:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblIDNum">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>160</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ID:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblNameTitle">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Title:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblExperience">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>120</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Experience: </string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbNameTitle">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>70</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtIDNum">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>160</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="deDofB">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>70</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbExperience">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>120</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtName">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>110</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblName">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>60</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Name:</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lstCrewLocations">
+     <property name="geometry">
+      <rect>
+       <x>760</x>
+       <y>70</y>
+       <width>451</width>
+       <height>71</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblCrewLocations">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>70</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Locations:</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tbMaterials">
+    <attribute name="title">
+     <string>Materials</string>
+    </attribute>
+    <widget class="QLabel" name="lblMaterialType">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Type of Material: </string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbMaterialType">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>20</y>
+       <width>691</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialIDNum">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ID Number:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialTitle">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Title:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblVFormat">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Video Format:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblAFormat">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>220</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Audio Format:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialLanguage">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>170</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Language:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialFrameHorizontal">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>370</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frame Horizontal Ratio:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialPackage">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>70</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Packaging:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialRuntime">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>120</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Runtime:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialPrice">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>70</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Price:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialSubLang">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>70</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Subtitle Languages:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtMaterialIDNum">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>70</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtMaterialTitle">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>120</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbVFormat">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>170</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbAFormat">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>220</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbMaterialLanguage">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>170</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lstSubLang">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>150</y>
+       <width>361</width>
+       <height>101</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbSubLang">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>110</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdSubLangAdd">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>110</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdSubLangDel">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>110</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Del</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbMaterialPrice">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>70</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>999999999</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialCreated">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>20</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Material Created:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialAnswer">
+     <property name="geometry">
+      <rect>
+       <x>1110</x>
+       <y>20</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>No</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdMaterialClear">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>500</y>
+       <width>381</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear Changes</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdMaterialDel">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>500</y>
+       <width>381</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete Material</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdMaterialCreate">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>500</y>
+       <width>381</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Create Material</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbMaterialRuntime">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>120</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>1000</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdExtraLanguageTracksDel">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>360</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Del</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lstExtraLanguageTracks">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>400</y>
+       <width>271</width>
+       <height>81</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbExtraLanguageTracks">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>360</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdExtraLanguageTracksAdd">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>360</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbExtraSubtitleTracks">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>360</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdExtraSubtitleTracksAdd">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>360</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lstExtraSubtitleTracks">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>400</y>
+       <width>281</width>
+       <height>81</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdExtraSubtitleTracksDel">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>360</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Del</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdBonusFeaturesAdd">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>360</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lstBonusFeatures">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>400</y>
+       <width>271</width>
+       <height>81</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cmdBonusFeaturesDel">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>360</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Del</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblExtraLanguageTracks">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>320</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Extra Language Tracks:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblExtraSubtitleTracks">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>320</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Extra Subtitle Tracks:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblBonusFeatures">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>320</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bonus Features:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblFirstSideContent">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>270</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>First Side Content:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtFirstSideContent">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>270</y>
+       <width>241</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblSecondSideContent">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>270</y>
+       <width>181</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Second Side Content:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtSecondSideContent">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>270</y>
+       <width>241</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtBonusFeatures">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>360</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbFrameHorizontal">
+     <property name="geometry">
+      <rect>
+       <x>1110</x>
+       <y>370</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbFrameVertical">
+     <property name="geometry">
+      <rect>
+       <x>1110</x>
+       <y>410</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialFrameVertical">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>410</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frame Vertical Ratio:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialFrameAspect">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>320</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frame Aspect:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtFrameDescription">
+     <property name="geometry">
+      <rect>
+       <x>1110</x>
+       <y>450</y>
+       <width>113</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialFrameDescription">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>450</y>
+       <width>181</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frame Ratio Description:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialPackageMaterial">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>120</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Packaging Material:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialPackageHeight">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>160</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Packaging Height:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialPackageDepth">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>240</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Packaging Depth:</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbPackagingHeight">
+     <property name="geometry">
+      <rect>
+       <x>1110</x>
+       <y>160</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbPackagingDepth">
+     <property name="geometry">
+      <rect>
+       <x>1110</x>
+       <y>240</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaterialPackageWidth">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>200</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Packaging Width:</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbPackagingWidth">
+     <property name="geometry">
+      <rect>
+       <x>1110</x>
+       <y>200</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbPackagingMaterial">
+     <property name="geometry">
+      <rect>
+       <x>1110</x>
+       <y>120</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbComboSingleDVD">
+     <property name="geometry">
+      <rect>
+       <x>760</x>
+       <y>70</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblComboDoubleDVD">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>120</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Amount of Double Sided DVDs:</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbComboDoubleDVD">
+     <property name="geometry">
+      <rect>
+       <x>760</x>
+       <y>120</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblComboSingleDVD">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>120</y>
+       <width>271</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Amount of Single Sided DVDs:</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="lblProjectName">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>0</y>
+     <width>271</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Project Name</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
