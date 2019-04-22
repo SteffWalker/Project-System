@@ -320,7 +320,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="cmdCreate_np">
+  <widget class="QPushButton" name="NewProjectButton">
    <property name="geometry">
     <rect>
      <x>460</x>

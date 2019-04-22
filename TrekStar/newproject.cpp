@@ -1,19 +1,22 @@
+#include <QString>
+#include <qstring.h>
 #include "newproject.h"
 #include "ui_newproject.h"
+#include "projectmodel.h"
 
 NewProject::NewProject(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewProject)
 {
-
-
     ui->setupUi(this);
     // Sets all options for status combo box on the main window
+
     ui->cbStatus_np->addItem("Unreleased");
     ui->cbStatus_np->addItem("Now Playing");
     ui->cbStatus_np->addItem("Released");
 
     // Sets all options for the genre combo box on the main window
+
     ui->cbGenre_np->addItem("Action");
     ui->cbGenre_np->addItem("Adventure");
     ui->cbGenre_np->addItem("Animation");
@@ -32,6 +35,7 @@ NewProject::NewProject(QWidget *parent) :
     ui->cbGenre_np->addItem("Thriller");
 
     // Sets all options for the language combo box on the main window
+
     ui->cbLanguage_np->addItem("English");
     ui->cbLanguage_np->addItem("French");
     ui->cbLanguage_np->addItem("German");
@@ -51,6 +55,7 @@ NewProject::~NewProject()
 void NewProject::on_cmdLocationAdd_np_clicked()
 {
     //QMessageBox::about(this,"Testing3","from handleLocationAdd slot");
+
      QString input = ui->txtLocationAdd_np->text();
      if(input.toStdString() != ""){
          ui->lstLocations_np->addItem(input);
@@ -81,11 +86,27 @@ void NewProject::on_cmdClear_np_clicked()
     ui->lstLocations_np->clear();
     ui->txtKeywordsAdd_np->clear();
     ui->lstKeywords_np->clear();
-
-
 }
 
 void NewProject::on_cmdCreate_np_clicked()
 {
 
 }
+
+void NewProject::on_NewProjectButton_clicked()
+{
+    projectModel project;
+    project.setValue(1, ui->txtTitleProject_np->text());
+    project.setValue(1, ui->txtSummary_np->document());
+    project.setValue(ui->deRelease_np->date());
+    project.setValue(1, ui->sbRuntime_np->value());
+    project.setValue(2, ui->cbStatus_np->currentText());
+    project.setValue(3, ui->cbGenre_np->currentText());
+    project.setValue(4, ui->cbLanguage_np->currentText());
+    project.setValue(2, ui->sbSales_np->value());
+    project.output();
+
+    //project. = words.toStdString();
+
+}
+

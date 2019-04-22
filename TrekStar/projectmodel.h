@@ -3,24 +3,32 @@
 
 #include <string>
 #include <vector>
-#include "date.h"
+#include <QString>
+#include <QTextEdit>
+#include <QDate>
 
 class projectModel
 {
 public:
     projectModel();
+    void setValue(int var, QString input);
+    void setValue(int var, int input);
+    void setValue(int var, QTextDocument* input);
+    void setValue(QDate input);
+    void output();  // Testing function
 
 private:
     int projectID;
     std::string title;
     std::string summary;
     std::string genre;
-    date releaseDate;
+    QDate releaseDate;
+    std::string status;
     std::vector <std::string> locations;
     std::string language;
     int runtime;
     std::vector <std::string> keywords;
-    double sale;
+    double sales;
 };
 
 #endif // PROJECTMODEL_H

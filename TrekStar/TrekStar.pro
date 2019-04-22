@@ -32,8 +32,8 @@ SOURCES += \
     projectdetails.cpp \
     productmodel.cpp \
     projectmodel.cpp \
-    date.cpp \
-    newmaterial.cpp
+    newmaterial.cpp \
+    projectcontroller.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,8 +42,8 @@ HEADERS += \
     projectdetails.h \
     productmodel.h \
     projectmodel.h \
-    date.h \
-    newmaterial.h
+    newmaterial.h \
+    projectcontroller.h
 
 FORMS += \
         mainwindow.ui \

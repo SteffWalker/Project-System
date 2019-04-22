@@ -2,6 +2,7 @@
 #define NEWPROJECT_H
 
 #include <QDialog>
+#include <projectmodel.h>
 
 namespace Ui {
 class NewProject;
@@ -14,8 +15,6 @@ class NewProject : public QDialog
 public:
     explicit NewProject(QWidget *parent = nullptr);
     ~NewProject();
-
-//private:
     Ui::NewProject *ui;
 
 private slots:
@@ -23,6 +22,9 @@ private slots:
     void on_cmdKeywordsAdd_np_clicked();
     void on_cmdCreate_np_clicked();
     void on_cmdClear_np_clicked();
+    void on_NewProjectButton_clicked();
+
+
 };
 
 #endif // NEWPROJECT_H
