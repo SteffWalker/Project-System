@@ -95,6 +95,7 @@ void NewProject::on_cmdCreate_np_clicked()
 
 void NewProject::on_NewProjectButton_clicked()
 {
+    /*
     projectModel project;
     project.setValue(1, ui->txtTitleProject_np->text());
     project.setValue(1, ui->txtSummary_np->document());
@@ -105,6 +106,7 @@ void NewProject::on_NewProjectButton_clicked()
     project.setValue(4, ui->cbLanguage_np->currentText());
     project.setValue(2, ui->sbSales_np->value());
     project.output();
+    */
 
     //project. = words.toStdString();
 

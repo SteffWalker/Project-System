@@ -5,16 +5,21 @@
 #include "newproject.h"
 #include "projectmodel.h"
 
-class projectcontroller
+class projectcontroller :   public QObject
 {
+
+    Q_OBJECT
 
 public:
     projectcontroller();
-    void createProject();
+    //void createProject();
 
 private:
     MainWindow mw;
     NewProject np;
+
+private slots:
+    void createProject();
 };
 
 #endif // PROJECTCONTROLLER_H
