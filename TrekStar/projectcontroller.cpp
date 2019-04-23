@@ -2,17 +2,42 @@
 #include "projectcontroller.h"
 #include "newproject.h"
 #include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include "ui_newproject.h"
+#include "ui_openproject.h"
 
 projectcontroller::projectcontroller()
 {
+    connect(mw.ui->pushButton, SIGNAL(clicked()), this, SLOT (projectWindow()));
+    connect(mw.ui->pushButton_2, SIGNAL(clicked()), this, SLOT(openProjWindow()));
+    connect(np.ui->backButton, SIGNAL(clicked()), this, SLOT (npBack()));
     connect(np.ui->NewProjectButton, SIGNAL(clicked()), this, SLOT (createProject()));
+    mw.show();
+}
+
+void projectcontroller::projectWindow()
+{
+    mw.hide();
     np.show();
+}
+
+void projectcontroller::openProjWindow()
+{
+    mw.hide();
+    op.show();
+    //op.ui->lstProjects->addItem(projList.top());  // Look into displaying projects in the QLIST widget.
+}
+
+void projectcontroller::npBack()
+{
+    np.hide();
+    mw.show();
 }
 
 void projectcontroller::createProject()
 {
     // Declare variables to be tested before project is constructed
+
     std::string title = np.ui->txtTitleProject_np->text().toStdString();
     std::string summary = np.ui->txtSummary_np->document()->toPlainText().toStdString();
     bool valid = true;
@@ -65,6 +90,8 @@ void projectcontroller::createProject()
             keywords.push_back(np.ui->lstKeywords_np->item(i)->text().toStdString());
         }
         projectModel project(title, summary, genre, date, status, locations, language, runtime, keywords, sales);
+        projList.push(project);
+
         std::cout << "Created successfully" << std::endl;
     }
 
