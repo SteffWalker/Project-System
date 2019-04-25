@@ -74,41 +74,13 @@ void NewProject::on_cmdKeywordsAdd_np_clicked()
 
 void NewProject::on_cmdClear_np_clicked()
 {
-    ui->txtTitleProject_np->clear();
-    ui->txtSummary_np->clear();
-    ui->cbStatus_np->setCurrentIndex(0);
-    ui->cbGenre_np->setCurrentIndex(0);
-    ui->cbLanguage_np->setCurrentIndex(0);
-    ui->deRelease_np->setDate(QDate(2000, 1, 1));
-    ui->sbRuntime_np->setValue(0);
-    ui->sbSales_np->setValue(0);
-    ui->txtLocationAdd_np->clear();
-    ui->lstLocations_np->clear();
-    ui->txtKeywordsAdd_np->clear();
-    ui->lstKeywords_np->clear();
 }
 
 void NewProject::on_cmdCreate_np_clicked()
 {
-
 }
 
 void NewProject::on_NewProjectButton_clicked()
 {
-    /*
-    projectModel project;
-    project.setValue(1, ui->txtTitleProject_np->text());
-    project.setValue(1, ui->txtSummary_np->document());
-    project.setValue(ui->deRelease_np->date());
-    project.setValue(1, ui->sbRuntime_np->value());
-    project.setValue(2, ui->cbStatus_np->currentText());
-    project.setValue(3, ui->cbGenre_np->currentText());
-    project.setValue(4, ui->cbLanguage_np->currentText());
-    project.setValue(2, ui->sbSales_np->value());
-    project.output();
-    */
-
-    //project. = words.toStdString();
-
 }
 

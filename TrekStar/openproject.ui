@@ -62,7 +62,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>290</x>
      <y>10</y>
      <width>311</width>
      <height>31</height>
@@ -77,6 +77,9 @@
    </property>
    <property name="text">
     <string>Open Project</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLineEdit" name="txtFilter">
@@ -100,6 +103,19 @@
    </property>
    <property name="text">
     <string>Filter</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>16</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
    </property>
   </widget>
  </widget>

@@ -1,7 +1,7 @@
 #ifndef PROJECTCONTROLLER_H
 #define PROJECTCONTROLLER_H
 
-#include <stack>
+#include <vector>
 #include "mainwindow.h"
 #include "newproject.h"
 #include "projectmodel.h"
@@ -9,7 +9,7 @@
 
 class projectcontroller :   public QObject
 {
-    std::stack <projectModel> projList;
+    std::vector <projectModel> projList;
 
     Q_OBJECT
 
@@ -24,9 +24,11 @@ private:
 
 private slots:
     void createProject();
+    void clearForm();
     void projectWindow();
     void openProjWindow();
     void npBack();
+    void opBack();
 
 };
 

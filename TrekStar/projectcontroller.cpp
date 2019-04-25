@@ -1,4 +1,5 @@
 #include <iostream>         // Testing purposes
+#include <QString>
 #include "projectcontroller.h"
 #include "newproject.h"
 #include "mainwindow.h"
@@ -12,6 +13,7 @@ projectcontroller::projectcontroller()
     connect(mw.ui->pushButton_2, SIGNAL(clicked()), this, SLOT(openProjWindow()));
     connect(np.ui->backButton, SIGNAL(clicked()), this, SLOT (npBack()));
     connect(np.ui->NewProjectButton, SIGNAL(clicked()), this, SLOT (createProject()));
+    connect(op.ui->backButton, SIGNAL(clicked()), this, SLOT (opBack()));
     mw.show();
 }
 
@@ -25,12 +27,24 @@ void projectcontroller::openProjWindow()
 {
     mw.hide();
     op.show();
-    //op.ui->lstProjects->addItem(projList.top());  // Look into displaying projects in the QLIST widget.
+
+    for(int i = 0; i<projList.size(); i++)
+    {
+        QString Qproject = QString::fromStdString(projList.at(i).getTitle());
+        op.ui->lstProjects->addItem(Qproject);
+    }
+      // Look into displaying projects in the QLIST widget.
 }
 
 void projectcontroller::npBack()
 {
     np.hide();
+    mw.show();
+}
+
+void projectcontroller::opBack()
+{
+    op.hide();
     mw.show();
 }
 
@@ -90,9 +104,25 @@ void projectcontroller::createProject()
             keywords.push_back(np.ui->lstKeywords_np->item(i)->text().toStdString());
         }
         projectModel project(title, summary, genre, date, status, locations, language, runtime, keywords, sales);
-        projList.push(project);
+        projList.push_back(project);
+        this->clearForm();
 
         std::cout << "Created successfully" << std::endl;
     }
+}
 
+void projectcontroller::clearForm()
+{
+    np.ui->txtTitleProject_np->clear();
+    np.ui->txtSummary_np->clear();
+    np.ui->cbStatus_np->setCurrentIndex(0);
+    np.ui->cbGenre_np->setCurrentIndex(0);
+    np.ui->cbLanguage_np->setCurrentIndex(0);
+    np.ui->deRelease_np->setDate(QDate(2000, 1, 1));
+    np.ui->sbRuntime_np->setValue(0);
+    np.ui->sbSales_np->setValue(0);
+    np.ui->txtLocationAdd_np->clear();
+    np.ui->lstLocations_np->clear();
+    np.ui->txtKeywordsAdd_np->clear();
+    np.ui->lstKeywords_np->clear();
 }
