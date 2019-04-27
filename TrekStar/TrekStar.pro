@@ -32,8 +32,16 @@ SOURCES += \
     projectdetails.cpp \
     productmodel.cpp \
     projectmodel.cpp \
-    newmaterial.cpp \
-    projectcontroller.cpp
+    projectcontroller.cpp \
+    bluray.cpp \
+    material.cpp \
+    frameaspect.cpp \
+    packaging.cpp \
+    dvd.cpp \
+    singlesideddvd.cpp \
+    twosideddvd.cpp \
+    combobox.cpp \
+    vhs.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,14 +50,22 @@ HEADERS += \
     projectdetails.h \
     productmodel.h \
     projectmodel.h \
-    newmaterial.h \
-    projectcontroller.h
+    projectcontroller.h \
+    bluray.h \
+    main.h \
+    material.h \
+    frameaspect.h \
+    packaging.h \
+    dvd.h \
+    singlesideddvd.h \
+    twosideddvd.h \
+    combobox.h \
+    vhs.h
 
 FORMS += \
         mainwindow.ui \
     openproject.ui \
     projectdetails.ui \
-    newmaterial.ui \
     newproject.ui
 
 # Default rules for deployment.

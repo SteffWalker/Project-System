@@ -27,6 +27,7 @@ private slots:
     void projectWindow();
     void openProjWindow();
     void npBack();
+    void statusChange();
 
 };
 

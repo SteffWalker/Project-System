@@ -3,7 +3,7 @@
 #include "newproject.h"
 #include "openproject.h"
 #include "projectdetails.h"
-#include "newmaterial.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,17 +19,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    /*NewProject np;
+    NewProject np;
     np.setModal(true);
-    np.exec();*/
+    np.exec();
 
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    /*OpenProject op;
+    OpenProject op;
     op.setModal(true);
-    op.exec();*/
+    op.exec();
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -39,9 +39,4 @@ void MainWindow::on_pushButton_3_clicked()
     pd.exec();
 }
 
-void MainWindow::on_pushButton_5_clicked()
-{
-    NewMaterial nm;
-    nm.setModal(true);
-    nm.exec();
-}
+
