@@ -1,19 +1,26 @@
 #include <iostream>         // Testing purposes
 #include <QString>
+#include <fstream>
+#include <QFile>
+#include <QTextStream>
 #include "projectcontroller.h"
 #include "newproject.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ui_newproject.h"
 #include "ui_openproject.h"
+#include "ui_projectdetails.h"
 
 projectcontroller::projectcontroller()
 {
     connect(mw.ui->pushButton, SIGNAL(clicked()), this, SLOT (projectWindow()));
     connect(mw.ui->pushButton_2, SIGNAL(clicked()), this, SLOT(openProjWindow()));
+    connect(mw.ui->pushButton_3, SIGNAL(clicked()), this, SLOT(projDetailWindow()));
+    connect(mw.ui->exitButton, SIGNAL(clicked()), this, SLOT(saveToFile()));
     connect(np.ui->backButton, SIGNAL(clicked()), this, SLOT (npBack()));
     connect(np.ui->NewProjectButton, SIGNAL(clicked()), this, SLOT (createProject()));
     connect(op.ui->backButton, SIGNAL(clicked()), this, SLOT (opBack()));
+    connect(pd.ui->backButton, SIGNAL(clicked()), this, SLOT (pdBack()));
     mw.show();
 }
 
@@ -32,8 +39,14 @@ void projectcontroller::openProjWindow()
     {
         QString Qproject = QString::fromStdString(projList.at(i).getTitle());
         op.ui->lstProjects->addItem(Qproject);
+        //op.ui->tblProjects->insertRow()
     }
-      // Look into displaying projects in the QLIST widget.
+}
+
+void projectcontroller::projDetailWindow()
+{
+    mw.hide();
+    pd.show();
 }
 
 void projectcontroller::npBack()
@@ -48,10 +61,17 @@ void projectcontroller::opBack()
     mw.show();
 }
 
+void projectcontroller::pdBack()
+{
+    pd.hide();
+    mw.show();
+}
+
 void projectcontroller::createProject()
 {
     // Declare variables to be tested before project is constructed
 
+    unsigned long id = projList.size();
     std::string title = np.ui->txtTitleProject_np->text().toStdString();
     std::string summary = np.ui->txtSummary_np->document()->toPlainText().toStdString();
     bool valid = true;
@@ -103,7 +123,7 @@ void projectcontroller::createProject()
         {
             keywords.push_back(np.ui->lstKeywords_np->item(i)->text().toStdString());
         }
-        projectModel project(title, summary, genre, date, status, locations, language, runtime, keywords, sales);
+        projectModel project(id, title, summary, genre, date, status, locations, language, runtime, keywords, sales);
         projList.push_back(project);
         this->clearForm();
 
@@ -125,4 +145,50 @@ void projectcontroller::clearForm()
     np.ui->lstLocations_np->clear();
     np.ui->txtKeywordsAdd_np->clear();
     np.ui->lstKeywords_np->clear();
+}
+
+void projectcontroller::openProject()
+{
+    std::string project = op.ui->lstProjects->currentItem()->text().toStdString();
+
+}
+
+void projectcontroller::saveToFile()
+{
+    std::ofstream file;
+    file.open("projects.csv");
+
+
+    for(int i = 0; i<projList.size(); i++)
+    {
+
+    file << i << "," << projList.at(i).getTitle() << "," << projList.at(i).getSummary() << "," << projList.at(i).getGenre() << "," << projList.at(i).getReleaseDate().toString().toStdString()
+         << "," << projList.at(i).getStatus()
+         //<< projList.at(i).getLocations()
+         << "," << projList.at(i).getLanguage() << "," << projList.at(i).getRuntime()
+         //<< projList.at(i).getKeywords()
+         << "," << projList.at(i).getSales() << std::endl;
+
+        //file << i << projList.at(i).getTitle() << projList.at(i).getSummary() << projList.at(i).getGenre() << projList.at(i).getReleaseDate().toString().toStdString()
+    }
+
+    //file << "please work" << std::endl;
+    file.close();
+
+    /*
+    file << "Testing" << std::endl;
+    file.close();
+
+    file.open("test.txt");
+    file << "Please work" << std::endl;
+    file.close();
+
+    QFile myFile("projects.csv");
+    myFile.open(QIODevice::WriteOnly);
+    QTextStream out(&myFile);
+    out << 49 << "\n";
+    myFile.close();
+    */
+
+    std::cout << "It should have worked!" << std::endl;
 }

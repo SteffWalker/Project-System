@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tbGeneral">
     <attribute name="title">
@@ -1427,7 +1427,7 @@
   <widget class="QLabel" name="lblProjectName">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>510</x>
      <y>0</y>
      <width>271</width>
      <height>31</height>
@@ -1442,6 +1442,22 @@
    </property>
    <property name="text">
     <string>Project Name</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>15</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
    </property>
   </widget>
  </widget>

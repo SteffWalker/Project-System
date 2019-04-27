@@ -34,9 +34,9 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    ProjectDetails pd;
+   /* ProjectDetails pd;
     pd.setModal(true);
-    pd.exec();
+    pd.exec();*/
 }
 
 void MainWindow::on_pushButton_5_clicked()

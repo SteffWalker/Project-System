@@ -6,6 +6,7 @@
 #include "newproject.h"
 #include "projectmodel.h"
 #include "openproject.h"
+#include "projectdetails.h"
 
 class projectcontroller :   public QObject
 {
@@ -21,14 +22,20 @@ private:
     MainWindow mw;
     NewProject np;
     OpenProject op;
+    ProjectDetails pd;
 
 private slots:
     void createProject();
     void clearForm();
+    void saveToFile();
+    void openProject();
     void projectWindow();
     void openProjWindow();
+    void projDetailWindow();
     void npBack();
     void opBack();
+    void pdBack();
+
 
 };
 

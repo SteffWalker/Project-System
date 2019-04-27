@@ -76,7 +76,7 @@
      <string>Edit Project</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
       <x>390</x>
