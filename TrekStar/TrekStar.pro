@@ -27,30 +27,52 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    newproject.cpp \
-    openproject.cpp \
-    projectdetails.cpp \
-    productmodel.cpp \
-    projectmodel.cpp \
-    newmaterial.cpp \
-    projectcontroller.cpp
+        newproject.cpp \
+        openproject.cpp \
+        projectdetails.cpp \
+        productmodel.cpp \
+        projectmodel.cpp \
+        newmaterial.cpp \
+        projectcontroller.cpp \
+        packaging.cpp \
+        frameaspect.cpp \
+        productcontroller.cpp \
+        filmcrew.cpp \
+        dvd.cpp \
+        singlesideddvd.cpp \
+        doublesideddvd.cpp \
+        vhs.cpp \
+        bluray.cpp \
+        combobox.cpp \
+        project.cpp
 
 HEADERS += \
         mainwindow.h \
-    newproject.h \
-    openproject.h \
-    projectdetails.h \
-    productmodel.h \
-    projectmodel.h \
-    newmaterial.h \
-    projectcontroller.h
+        newproject.h \
+        openproject.h \
+        projectdetails.h \
+        productmodel.h \
+        projectmodel.h \
+        newmaterial.h \
+        projectcontroller.h \
+        packaging.h \
+        frameaspect.h \
+        productcontroller.h \
+        filmcrew.h \
+        dvd.h \
+        singlesideddvd.h \
+        doublesideddvd.h \
+        vhs.h \
+        bluray.h \
+        combobox.h \
+        project.h
 
 FORMS += \
         mainwindow.ui \
-    openproject.ui \
-    projectdetails.ui \
-    newmaterial.ui \
-    newproject.ui
+        openproject.ui \
+        projectdetails.ui \
+        newmaterial.ui \
+        newproject.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
