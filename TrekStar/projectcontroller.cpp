@@ -1,8 +1,10 @@
 #include <iostream>         // Testing purposes
 #include <QString>
+#include <sstream>
 #include <fstream>
 #include <QFile>
 #include <QTextStream>
+#include <cstring>
 #include "projectcontroller.h"
 #include "newproject.h"
 #include "mainwindow.h"
@@ -13,6 +15,7 @@
 
 projectcontroller::projectcontroller()
 {
+    this->loadProjects();
     connect(mw.ui->pushButton, SIGNAL(clicked()), this, SLOT (projectWindow()));
     connect(mw.ui->pushButton_2, SIGNAL(clicked()), this, SLOT(openProjWindow()));
     connect(mw.ui->pushButton_3, SIGNAL(clicked()), this, SLOT(projDetailWindow()));
@@ -35,6 +38,7 @@ void projectcontroller::openProjWindow()
     mw.hide();
     op.show();
 
+    op.ui->lstProjects->clear();
     for(int i = 0; i<projList.size(); i++)
     {
         QString Qproject = QString::fromStdString(projList.at(i).getTitle());
@@ -69,9 +73,16 @@ void projectcontroller::pdBack()
 
 void projectcontroller::createProject()
 {
+    unsigned long id;
     // Declare variables to be tested before project is constructed
-
-    unsigned long id = projList.size();
+    if(projList.empty())
+    {
+        id = 0;
+    }
+    else
+    {
+        id = projList.back().getID()+1;
+    }
     std::string title = np.ui->txtTitleProject_np->text().toStdString();
     std::string summary = np.ui->txtSummary_np->document()->toPlainText().toStdString();
     bool valid = true;
@@ -118,11 +129,22 @@ void projectcontroller::createProject()
             locations.push_back(np.ui->lstLocations_np->item(i)->text().toStdString());
         }
 
+        for(int i = 0; i<np.ui->lstLocations_np->count(); i++)
+        {
+            std::cout << locations.at(i) << std::endl;
+        }
+
         std::vector <std::string> keywords;
         for(int i = 0; i<np.ui->lstKeywords_np->count(); i++)
         {
             keywords.push_back(np.ui->lstKeywords_np->item(i)->text().toStdString());
         }
+
+        for(int i = 0; i<np.ui->lstKeywords_np->count(); i++)
+        {
+            std::cout << keywords.at(i) << std::endl;
+        }
+
         projectModel project(id, title, summary, genre, date, status, locations, language, runtime, keywords, sales);
         projList.push_back(project);
         this->clearForm();
@@ -150,7 +172,6 @@ void projectcontroller::clearForm()
 void projectcontroller::openProject()
 {
     std::string project = op.ui->lstProjects->currentItem()->text().toStdString();
-
 }
 
 void projectcontroller::saveToFile()
@@ -163,32 +184,106 @@ void projectcontroller::saveToFile()
     {
 
     file << i << "," << projList.at(i).getTitle() << "," << projList.at(i).getSummary() << "," << projList.at(i).getGenre() << "," << projList.at(i).getReleaseDate().toString().toStdString()
-         << "," << projList.at(i).getStatus()
-         //<< projList.at(i).getLocations()
-         << "," << projList.at(i).getLanguage() << "," << projList.at(i).getRuntime()
-         //<< projList.at(i).getKeywords()
-         << "," << projList.at(i).getSales() << std::endl;
-
-        //file << i << projList.at(i).getTitle() << projList.at(i).getSummary() << projList.at(i).getGenre() << projList.at(i).getReleaseDate().toString().toStdString()
+         << "," << projList.at(i).getStatus() << "," << projList.at(i).getLocations() << projList.at(i).getLanguage() << ","<< projList.at(i).getRuntime()
+         << "," << projList.at(i).getKeywords() << projList.at(i).getSales() << std::endl;
     }
-
-    //file << "please work" << std::endl;
     file.close();
+    QApplication::quit();
+}
 
-    /*
-    file << "Testing" << std::endl;
-    file.close();
+void projectcontroller::loadProjects()
+{
+    std::ifstream file("projects.csv");
+    std::string id;
+    std::string title;
+    std::string summary;
+    std::string genre;
+    std::string releaseDate;
+    std::string status;
+    std::string locations;
+    std::string language;
+    std::string runtime;
+    std::string keywords;
+    std::string sales;
 
-    file.open("test.txt");
-    file << "Please work" << std::endl;
-    file.close();
+    std::string line;
+    while(getline(file, line))
+    {
+        std::stringstream ss(line);
+        getline(ss, id, ',');
+        getline(ss, title, ',');
+        getline(ss, summary, ',');
+        getline(ss, genre, ',');
+        getline(ss, releaseDate, ',');
+        getline(ss, status, ',');
+        getline(ss, locations, '}');
+        getline(ss, language, ',');
+        getline(ss, runtime, ',');
+        getline(ss, keywords, '}');
+        getline(ss, sales, ',');
 
-    QFile myFile("projects.csv");
-    myFile.open(QIODevice::WriteOnly);
-    QTextStream out(&myFile);
-    out << 49 << "\n";
-    myFile.close();
-    */
+        locations.erase(0,1);
+        keywords.erase(0,1);
+        std::vector <std::string> locationList;
 
-    std::cout << "It should have worked!" << std::endl;
+        char* point;
+        char locationChar[locations.size() + 1];
+        strcpy(locationChar, locations.c_str());
+        point = strtok(locationChar, ",");
+
+        while(point!=NULL)
+        {
+            locationList.push_back(point);
+            point = strtok(NULL, ",");
+        }
+
+        std::vector <std::string> keywordsList;
+
+        char keywordsChar[keywords.size() + 1];
+        strcpy(keywordsChar, keywords.c_str());
+        point = strtok(keywordsChar, ",");
+
+        while(point!=NULL)
+        {
+            keywordsList.push_back(point);
+            point = strtok(NULL, ",");
+        }
+
+        for(int i = 1; i<locationList.size(); i++)
+        {
+            locationList.at(i).erase(0,1);
+        }
+
+        for(int i = 1; i<keywordsList.size(); i++)
+        {
+            keywordsList.at(i).erase(0,1);
+        }
+
+        QDate date;
+        QString qDate;
+        qDate.fromStdString(releaseDate);
+        date.fromString(qDate);
+
+        unsigned long idLong = std::stoul(id);
+        int runtimeInt = std::stoi(runtime);
+        double salesDouble = std::stod(sales);
+
+
+        std::cout << "id " << id << std::endl;
+        std::cout << "title " << title << std::endl;
+        std::cout << "summary " << summary << std::endl;
+        std::cout << "genre " << genre << std::endl;
+        std::cout << "releaseDate " << releaseDate << std::endl;
+        std::cout << "status " << status << std::endl;
+        std::cout << "locations " << locations << std::endl;
+        std::cout << "language " << language << std::endl;
+        std::cout << "runtime " << runtime<< std::endl;
+        std::cout << "keywords " << keywords << std::endl;
+        std::cout << "sales " << sales << std::endl;
+
+        projectModel project (idLong, title, summary, genre, date, status, locationList, language, runtimeInt, keywordsList, salesDouble);
+        projList.push_back(project);
+
+
+    }
 }

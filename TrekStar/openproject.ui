@@ -42,10 +42,10 @@
   <widget class="QListWidget" name="lstProjects">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>310</y>
-     <width>311</width>
-     <height>121</height>
+     <x>10</x>
+     <y>100</y>
+     <width>731</width>
+     <height>331</height>
     </rect>
    </property>
   </widget>
@@ -116,16 +116,6 @@
    </property>
    <property name="text">
     <string>Back</string>
-   </property>
-  </widget>
-  <widget class="QTableWidget" name="tblProjects">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>100</y>
-     <width>441</width>
-     <height>201</height>
-    </rect>
    </property>
   </widget>
  </widget>

@@ -28,6 +28,7 @@ private slots:
     void createProject();
     void clearForm();
     void saveToFile();
+    void loadProjects();
     void openProject();
     void projectWindow();
     void openProjWindow();

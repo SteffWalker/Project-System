@@ -21,6 +21,15 @@ projectModel::projectModel(unsigned long projectID, std::string title, std::stri
     std::cout << "Project successfully created" << std::endl;
 }
 
+projectModel::projectModel()
+{
+}
+
+unsigned long projectModel::getID()
+{
+    return this->projectID;
+}
+
 std::string projectModel::getTitle()
 {
     return this->title;
@@ -46,9 +55,23 @@ std::string projectModel::getStatus()
     return this->status;
 }
 
-std::vector <std::string> projectModel::getLocations()
+std::string projectModel::getLocations()
 {
-    return this->locations;
+    if(this->locations.empty())
+    {
+        return " ";
+    }
+    std::string locations;
+    locations.append("{");
+    for(int i = 0; i<this->locations.size(); i++)
+    {
+        if(i==this->locations.size()-1)
+        {
+            locations.append(this->locations.at(i) + "}");
+            return locations;
+        }
+        locations.append(this->locations.at(i) + ", ");
+    }
 }
 
 std::string projectModel::getLanguage()
@@ -61,13 +84,77 @@ int projectModel::getRuntime()
     return this->runtime;
 }
 
-std::vector <std::string> projectModel::getKeywords()
+std::string projectModel::getKeywords()
 {
-    return this->keywords;
+    if(this->keywords.empty())
+    {
+        return " ";
+    }
+
+    std::string keywords;
+    keywords.append("{");
+    for(int i = 0; i<this->keywords.size(); i++)
+    {
+        if(i==this->keywords.size()-1)
+        {
+            keywords.append(this->keywords.at(i) + "}");
+            return keywords;
+        }
+        keywords.append(this->keywords.at(i) + ", ");
+    }
 }
 
 double projectModel::getSales()
 {
     return this->sales;
+}
+
+void projectModel::setTitle(std::string title)
+{
+    this->title = title;
+}
+
+void projectModel::setSummary(std::string summary)
+{
+    this->summary = summary;
+}
+
+void projectModel::setGenre(std::string genre)
+{
+    this->genre = genre;
+}
+void projectModel::setReleaseDate(QDate releaseDate)
+{
+    this->releaseDate = releaseDate;
+}
+
+void projectModel::setStatus(std::string status)
+{
+    this->status = status;
+}
+
+void projectModel::setLocations(std::vector <std::string> locations)
+{
+    this->locations = locations;
+}
+
+void projectModel::setLanguage(std::string language)
+{
+    this->language = language;
+}
+
+void projectModel::setRuntime(int runtime)
+{
+    this->runtime = runtime;
+}
+
+void projectModel::setKeywords(std::vector <std::string> keywords)
+{
+    this->keywords = keywords;
+}
+
+void projectModel::setSales(double sales)
+{
+    this->sales = sales;
 }
 
