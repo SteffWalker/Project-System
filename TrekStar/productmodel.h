@@ -1,26 +1,57 @@
 #ifndef PRODUCTMODEL_H
 #define PRODUCTMODEL_H
-
+#include <iostream>
 #include <string>
 #include <vector>
+#include "packaging.h"
+#include "frameaspect.h"
+using namespace std;
 
 class productModel
 {
+protected:
+   string idNumber = "0";
+   string title = "";
+   string vFormat = "";
+   string aFormat = "";
+   string language = "";
+   FrameAspect frame;
+   Packaging package;
+
+
+   int runTime = 0;
+
+   float price = 0;
+
+   vector<string> subTitleLanguages;
+
+
 public:
     productModel();
-
-private:
-    int productID;
-    std::string title;
-    //format
-    std::vector <std::string> audioFormat;
-    int runtime;
-    std::string language;
-    double price;
-    std::string subtitle;
-    std::vector <std::string> frameAspect;
-    std::vector <std::string> packaging;
-
+    productModel(string idNumber,string title,string vFormat,string aFormat,string language,
+             FrameAspect frame, Packaging package, int runTime,float price,
+             vector<string> subTitleLanguages);
+    string getIdNumber() const;
+    void setIdNumber(const string &value);
+    string getTitle() const;
+    void setTitle(const string &value);
+    string getVFormat() const;
+    void setVFormat(const string &value);
+    string getAFormat() const;
+    void setAFormat(const string &value);
+    string getLanguage() const;
+    void setLanguage(const string &value);
+    int getRunTime() const;
+    void setRunTime(int value);
+    float getPrice() const;
+    void setPrice(float value);
+    vector<string> getSubTitleLanguages() const;
+    void setSubTitleLanguages(const vector<string> &value);
+    string getMaterials();
+    FrameAspect getFrame() const;
+    void setFrame(const FrameAspect &value);
+    Packaging getPackage() const;
+    void setPackage(const Packaging &value);
 };
 
 #endif // PRODUCTMODEL_H

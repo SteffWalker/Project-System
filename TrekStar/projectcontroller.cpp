@@ -21,6 +21,7 @@ projectcontroller::projectcontroller()
     connect(np.ui->NewProjectButton, SIGNAL(clicked()), this, SLOT (createProject()));
     connect(op.ui->backButton, SIGNAL(clicked()), this, SLOT (opBack()));
     connect(pd.ui->backButton, SIGNAL(clicked()), this, SLOT (pdBack()));
+    connect(np.ui->cmdClear_np, SIGNAL(clicked()), this, SLOT (clearForm()));
     mw.show();
 }
 

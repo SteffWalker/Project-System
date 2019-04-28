@@ -74,6 +74,7 @@ void NewProject::on_cmdKeywordsAdd_np_clicked()
 
 void NewProject::on_cmdClear_np_clicked()
 {
+
 }
 
 void NewProject::on_cmdCreate_np_clicked()

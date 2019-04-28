@@ -7,6 +7,7 @@
 #include "projectmodel.h"
 #include "openproject.h"
 #include "projectdetails.h"
+#include "ui_projectdetails.h"
 
 class projectcontroller :   public QObject
 {
